@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+    app: webapp
+spec:
+  replicas: 2 # We want 2 instances (pods) of our application
+  selector:
+    matchLabels:
+      app: webapp # This selector tells the deployment which pods it manages
+  template:
+    metadata:
+      labels:
+        app: webapp # These labels are applied to the pods created by this deployment
+    spec:
+      containers:
+      - name: webapp-container
+        image: nginx:latest # Using the latest Nginx image for a simple web page
+        ports:
+        - containerPort: 80 # Nginx typically serves on port 80
