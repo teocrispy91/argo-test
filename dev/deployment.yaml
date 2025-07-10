@@ -5,7 +5,7 @@ metadata:
   labels:
     app: webapp
 spec:
-  replicas: 1 # We want 2 instances (pods) of our application
+  replicas: 2 # We want 2 instances (pods) of our application
   selector:
     matchLabels:
       app: webapp # This selector tells the deployment which pods it manages
