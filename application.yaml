@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: tapp
+  name: nginx
   namespace: argocd
 spec:
   project: default
@@ -12,12 +12,12 @@ spec:
     path: dev
   destination: 
     server: https://kubernetes.default.svc
-    namespace: tapp-test
+    namespace: nginx-test
 
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
 
     automated:
-      selfHeal: true
-      prune: true
+      selfHeal: false
+      prune: false
